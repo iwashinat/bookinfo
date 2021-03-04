@@ -1,0 +1,14 @@
+# Create a Channel that declares resources that can be deployed
+# Channel can be a Namespace, Object Store Bucket, or Helm Repo
+#apiVersion: app.ibm.com/v1alpha1
+apiVersion: apps.open-cluster-management.io/v1
+kind: Channel
+metadata:
+  name: bookinfo-git-channel
+  namespace: bookinfo-source
+  labels:
+    purpose: icam-demo
+    appname: bookinfo-demo
+spec:
+  type: Git
+  pathname: https://github.com/ICpTrial/bookinfo.git  
