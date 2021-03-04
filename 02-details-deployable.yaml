@@ -22,48 +22,48 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-name: bookinfo-demo-details
-labels:
-  runtime: go
-  app.kubernetes.io/name: details
-  app.kubernetes.io/instance: bookinfo-demo
-spec:
-replicas: 1
-selector:
-  matchLabels:
+  name: bookinfo-demo-details
+  labels:
+    runtime: go
     app.kubernetes.io/name: details
     app.kubernetes.io/instance: bookinfo-demo
-template:
-  metadata:
-    labels:
-      runtime: go
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
       app.kubernetes.io/name: details
       app.kubernetes.io/instance: bookinfo-demo
-  spec:
-    containers:
-      - env:
-        - name: OPENTRACING_ENABLED
-          value: "true"
-        - name: JAEGER_SAMPLER_TYPE
-          value: "probabilistic"
-        - name: JAEGER_SAMPLER_PARAM
-          value: "1"
-        - name: LATENCY_SAMPLER_PARAM
-          value: "1"
-        name: details
-        image: "docker.io/dymaczew/examples-bookinfo-details-v1:2020.2.1"
-        imagePullPolicy: Always
-        ports:
-          - name: http
-            containerPort: 9080
-            protocol: TCP
-        livenessProbe:
-          httpGet:
-            path: /health
-            port: http
-        readinessProbe:
-          httpGet:
-            path: /health
-            port: http
-        resources:
-          {}
+  template:
+    metadata:
+      labels:
+        runtime: go
+        app.kubernetes.io/name: details
+        app.kubernetes.io/instance: bookinfo-demo
+    spec:
+      containers:
+        - env:
+          - name: OPENTRACING_ENABLED
+            value: "true"
+          - name: JAEGER_SAMPLER_TYPE
+            value: "probabilistic"
+          - name: JAEGER_SAMPLER_PARAM
+            value: "1"
+          - name: LATENCY_SAMPLER_PARAM
+            value: "1"
+          name: details
+          image: "docker.io/dymaczew/examples-bookinfo-details-v1:2020.2.1"
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 9080
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: http
+          resources:
+            {}
