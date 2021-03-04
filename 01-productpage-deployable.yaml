@@ -53,7 +53,7 @@ spec:
           - name: LATENCY_SAMPLER_PARAM
             value: "1"
           name: productpage
-          image: "docker.io/dymaczew/examples-bookinfo-productpage-v1:2020.2.1"
+          image: "docker.io/dymaczew/examples-bookinfo-productpage-v1:2020.2.0"
           imagePullPolicy: IfNotPresent
           ports:
             - name: http
