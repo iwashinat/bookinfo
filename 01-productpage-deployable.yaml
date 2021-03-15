@@ -54,6 +54,7 @@ spec:
             value: "1"
           name: productpage
           #image: "docker.io/dymaczew/examples-bookinfo-productpage-v1:2020.2.1"
+          image: "docker.io/dymaczew/examples-bookinfo-productpage-v1:2020.2.1"
           image: "docker.io/istio/examples-bookinfo-productpage-v1:1.15.0"
           imagePullPolicy: IfNotPresent
           ports:
