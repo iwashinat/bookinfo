@@ -15,5 +15,5 @@ spec:
       - path: /
         pathType: Prefix
         backend:
-          serviceName : productpage
+          serviceName: productpage
           servicePort: 9080
