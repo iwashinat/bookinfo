@@ -9,7 +9,7 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - host: bookinfo.10.0.0.2.nip.io
+  - host: bookinfo3.10.0.0.2.nip.io
     http:
       paths:
       - path: /
